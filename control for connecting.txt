@@ -1,0 +1,49 @@
+from pymysql import connect
+import os
+
+connection = connect(
+    host = os.getenv('MYSQL_HOST'),
+    user = os.getenv('MYSQL_USERS'),
+    password = os.getenv('MYSQL_PASSWORD'),
+    db = os.getenv('MYSQL_DATABASE'),
+    charset = 'utf8mb4'
+    )
+>>>>>>>>>>selecting all balances 
+try:
+    with connection.cursor() as cursor:
+        query = 'select * from balances';
+        cursor.execute(query)
+        result = cursor.fetchall()
+        print(result)
+finally:
+    connection.close()
+
+from pymysql import connect
+import os
+
+connection = connect(
+    host = os.getenv('MYSQL_HOST'),
+    user = os.getenv('MYSQL_USERS'),
+    password = os.getenv('MYSQL_PASSWORD'),
+    db = os.getenv('MYSQL_DATABASE'),
+    charset = 'utf8mb4'
+    )
+>>>>>>> selecting account_number from accounts;
+try:
+    with connection.cursor() as cursor:
+        query = 'select account_number from accounts';
+        cursor.execute(query)
+        result = cursor.fetchall()
+        print(result)
+finally:
+    connection.close()
+       
+"""        
+try:
+    with connection.cursor() as cursor:
+        query = "insert into accounts (account_holder, account_number, sort_code, deposit, withdrawals, balance) values ('Thomas Hurs', '67854389', '224455', '6057', '0', '6057')"
+        cursor.execute(query)
+    connection.commit()
+"""
+
+user_firstname
